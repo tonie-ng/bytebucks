@@ -93,7 +93,7 @@ async function register(req: Request, res: Response) {
     });
 
     const saved_user = await new_user.save();
-    const data = remove_field(saved_user, "authentication");
+    const data = remove_field(saved_user._doc, "authentication");
     return send_response(res, 200, true, "Registration Successfull", data);
   } catch (error) {
     return err_response(

@@ -2,14 +2,14 @@ FROM node:18-alpine
 
 # RUN npm install -g yarn
 
-WORKDIR /user/src/app
+WORKDIR /app
 
-COPY package*.json ./
+COPY package.json yarn.lock ./
 
-RUN npm install
+RUN yarn
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
