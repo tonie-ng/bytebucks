@@ -7,6 +7,12 @@ import {RegistrationRequest} from "../interfaces";
 
 const phoneNumberPattern = /^0[987][01][0-9]{8}$/;
 
+/**
+ * register - Function that handles registration process.
+ * @param req: User's request object.
+ * @param res: User's response object.
+ * @returns: A success or error response object depending on the success of the request
+ */
 async function register(req: Request, res: Response) {
   try {
     const {
@@ -51,7 +57,7 @@ async function register(req: Request, res: Response) {
       return (errResponse(res, 409, false, "Duplicate user", {error: `User already exists`}));
     }
 
-    // Over here I'll have to create a functionality to authenticate Token sentto the user's email
+    // Over here I'll have to create a functionality to authenticate Token sent to the user's email
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -75,6 +81,14 @@ async function register(req: Request, res: Response) {
   }
 }
 
+/**
+ * removeField - A function to remove a field from an object
+ * (I mostly use this to remove the password from the api response)
+ * @param obj: An object
+ * @param fieldToRemove: A field within the object that should be removed
+ *
+ * @returns: The object but this time without the removed field.
+ */
 function removeField<T>(obj: T, fieldToRemove: keyof T): Omit<T, typeof fieldToRemove> {
   const { [fieldToRemove]: removedField, ...restOfObject } = obj;
   return restOfObject as Omit<T, typeof fieldToRemove>;

@@ -5,6 +5,9 @@ dotenv.config();
 
 mongoose.set("strictQuery", true);
 
+/**
+ * connect - A connection method for the database
+ */
 exports.connect = () => {
   mongoose
     .connect(process.env.MONGO_URL)
