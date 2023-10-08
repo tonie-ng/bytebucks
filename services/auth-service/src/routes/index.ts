@@ -1,3 +1,4 @@
-import { router as register } from "./register";
+import { register } from "./register";
+import { login } from "./login"
 
-export { register };
+export { register, login };

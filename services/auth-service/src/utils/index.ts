@@ -1,5 +1,11 @@
+import { check_required, remove_field } from "./check_required";
 import { getAccountNumberFromPhoneNumber } from "./generate_acc_no";
-import { sendResponse, errResponse } from "./response";
-import { check_required } from "./check_required";
+import { err_response, send_response } from "./response";
 
-export { getAccountNumberFromPhoneNumber as generate_acc_no, sendResponse, errResponse, check_required };
+export {
+  check_required,
+  err_response,
+  getAccountNumberFromPhoneNumber as generate_acc_no,
+  remove_field,
+  send_response,
+};

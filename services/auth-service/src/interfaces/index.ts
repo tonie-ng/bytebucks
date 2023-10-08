@@ -1,4 +1,3 @@
-import { RegistrationRequest } from "./interfaces"; 
+import { RegistrationRequest, LoginRequest, IUser } from "./interfaces";
 
-
-export {RegistrationRequest};
+export {RegistrationRequest, LoginRequest, IUser};
